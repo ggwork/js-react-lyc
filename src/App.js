@@ -1,24 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
+import { ConfigProvider } from 'antd'
+import { MyRouter }  from './router'
+import zhCN from 'antd/es/locale-provider/zh_CN';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ConfigProvider locale={zhCN}>
+      <div className="App">
+        <MyRouter></MyRouter>
+      </div>
+    </ConfigProvider>
   );
 }
 
