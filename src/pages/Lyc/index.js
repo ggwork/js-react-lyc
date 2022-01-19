@@ -1,7 +1,7 @@
 import React, { createRef } from 'react';
 import './index.scss'
 import { Button, Input, message, Modal, Spin } from 'antd'
-
+import wxLogo from '../../assets/weixin.png'
 let textAreaPlaceholder = `上面填写的歌曲信息，实际在播放歌曲的时候并不显示。
 如果想在歌词中显示歌曲信息，请将歌曲信息放在歌词里。如：
 你的答案
@@ -432,6 +432,9 @@ class Lyc extends React.Component {
         {/* <div className='footer'>
           有事联系，v信:guo330504
         </div> */}
+        <div className='side'>
+          <img src={wxLogo} alt='微信：guo330504' title='微信：guo330504'></img>
+        </div>
       </div>
     )
   }
