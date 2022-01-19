@@ -2,7 +2,16 @@ import React, { createRef } from 'react';
 import './index.scss'
 import { Button, Input, message, Modal, Spin } from 'antd'
 
-
+let textAreaPlaceholder = `上面填写的歌曲信息，实际在播放歌曲的时候并不显示。
+如果想在歌词中显示歌曲信息，请将歌曲信息放在歌词里。如：
+你的答案
+词:林晨阳/刘涛
+编曲:谭侃侃
+演唱:阿冗
+……
+然后点击播放，在你觉得合适的时间，给这些信息打上tag即可。
+tips：当上一句唱完时，立即为下一句歌词打tag，显示效果会比较好一点
+`
 class Lyc extends React.Component {
   constructor(props) {
     super(props)
@@ -88,12 +97,12 @@ class Lyc extends React.Component {
   }
 
   timeEleBlur = (lycObj, index) => {
-    console.log('timeEleBlur:', index)
+    // console.log('timeEleBlur:', index)
     lycObj.timeReadOnly = true
     this.replaceLycList(lycObj, index)
   }
   timeContChange = (value, lycObj, index) => {
-    console.log('value:', value)
+    // console.log('value:', value)
     // 数据格式
     let timeReg = /^[0-5]{0,1}[0-9]{0,1}:[0-5]{0,1}[0-9]{0,1}\.\d{0,2}$/
     if (timeReg.test(value)) {
@@ -247,7 +256,6 @@ class Lyc extends React.Component {
   tagLyc = () => {
     let { currentIndex, wavesurfer, lycList } = this.state
     let currentTime = wavesurfer.getCurrentTime()
-    console.log('currentTime:', currentTime)
     let newTime = this.formatTime(currentTime)
     let lycObj = lycList[currentIndex]
     lycObj.time = newTime
@@ -288,7 +296,7 @@ class Lyc extends React.Component {
   // 导出歌词
   exportLyc = () => {
     let { audioFile, lycInfo, lycList } = this.state
-    console.log('audioFile:', audioFile)
+    // console.log('audioFile:', audioFile)
     if (audioFile.name) {
       let lycFileName = audioFile.name.split('.')[0]
       let lycInfoKeys = Object.keys(lycInfo)
@@ -305,7 +313,7 @@ class Lyc extends React.Component {
           content += '[' + item.time + ']' + item.cont + '\n'
         }
       }
-      this.download(lycFileName + '.lyc', content)
+      this.download(lycFileName + '.lrc', content)
     } else {
       this.showMessage('音频文件不存在，请先上传音频', 'error')
     }
@@ -325,12 +333,14 @@ class Lyc extends React.Component {
 
 
 
+
   render() {
     let { lycList, lycTextModalVisible, audioFile, currentIndex, audioLoad } = this.state
 
     return (
       <div className='lyc'>
         <Modal visible={lycTextModalVisible} title='粘贴歌词' onOk={this.lycTextModalOk} wrapClassName='lycModal' onCancel={this.closeLycModal}>
+          {/* 实际测试中发现，歌曲信息，无法在歌词中显示 */}
           <div className='lyc-auth'>
             <div className='lyc-a-item'>
               <span>歌曲名:</span>
@@ -350,7 +360,7 @@ class Lyc extends React.Component {
             </div>
           </div>
           <div className='lyc-m-w'>
-            <Input.TextArea onChange={this.lycTextChange} className='lycModalText'></Input.TextArea>
+            <Input.TextArea onChange={this.lycTextChange} className='lycModalText' placeholder={textAreaPlaceholder}></Input.TextArea>
           </div>
         </Modal>
         <div className='lyc-header'>
@@ -363,7 +373,7 @@ class Lyc extends React.Component {
             <div className='tools tools2'>
               <Button type='text' className='tools-upload-btn' >
                 上传歌曲
-                <input type='file' onChange={this.nativeUploadChange} className='tools-upload-input' />
+                <input type='file' onChange={this.nativeUploadChange} className='tools-upload-input' accept='audio/*' />
               </Button>
               <Button type='text' onClick={this.showLycTextModal}>粘贴歌词</Button>
               <Button type='text' onClick={this.exportLyc}>导出歌词</Button>
@@ -419,9 +429,9 @@ class Lyc extends React.Component {
             })
           }
         </div>
-        <div className='footer'>
-
-        </div>
+        {/* <div className='footer'>
+          有事联系，v信:guo330504
+        </div> */}
       </div>
     )
   }
