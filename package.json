@@ -1,7 +1,8 @@
 {
   "name": "js-react-lyc",
   "version": "0.1.0",
-  "private": true,
+  "keywords":["react","react-demo","antd","lrc"],
+  "description":"一个真正免费的在线歌词编辑网站，非常好用",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@loadable/component": "^5.15.2",
