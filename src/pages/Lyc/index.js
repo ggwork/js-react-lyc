@@ -2,6 +2,7 @@ import React, { createRef } from 'react';
 import './index.scss'
 import { Button, Input, message, Modal, Spin } from 'antd'
 import wxLogo from '../../assets/weixin.png'
+import WaveSurfer from 'wavesurfer.js';
 let textAreaPlaceholder = `上面填写的歌曲信息，实际在播放歌曲的时候并不显示。
 如果想在歌词中显示歌曲信息，请将歌曲信息放在歌词里。如：
 你的答案
@@ -10,7 +11,7 @@ let textAreaPlaceholder = `上面填写的歌曲信息，实际在播放歌曲�
 演唱:阿冗
 ……
 然后点击播放，在你觉得合适的时间，给这些信息打上tag即可。
-tips：当上一句唱完时，立即为下一句歌词打tag，显示效果会比较好一点
+tips：当上一句唱完时，立即为下一句歌词打时间戳，显示效果会比较好一点
 `
 class Lyc extends React.Component {
   constructor(props) {
@@ -35,13 +36,13 @@ class Lyc extends React.Component {
         },
         {
           time: '00:00.30',
-          cont: '3.点击"播放"，播放歌曲后，点击"打Tag"可在红色底（选中状态）一栏打上时间点',
+          cont: '3.点击"播放"，播放歌曲后，点击"打时间戳"可在红色底（选中状态）一栏打上时间点',
           timeReadOnly: true,
           contReadOnly: true
         },
         {
           time: '00:00.40',
-          cont: '4.可以点击“选中此行”后，拖动进度条重新给该行打tag',
+          cont: '4.可以点击“选中此行”后，拖动进度条重新给该行打时间戳',
           timeReadOnly: true,
           contReadOnly: true
         },
@@ -368,7 +369,7 @@ class Lyc extends React.Component {
             <div className='tools tools1'>
               <Button type='text' onClick={this.playAudio}>播放</Button>
               <Button type='text' onClick={this.stopAudio}>暂停</Button>
-              <Button type='text' onClick={this.tagLyc}>打Tag</Button>
+              <Button type='text' onClick={this.tagLyc}>打时间戳</Button>
             </div>
             <div className='tools tools2'>
               <Button type='text' className='tools-upload-btn' >

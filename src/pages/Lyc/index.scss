@@ -2,153 +2,186 @@
   0% {
     width: 0;
   }
+
   100% {
     width: 100%;
   }
 }
-.lyc{
+
+.lyc {
   padding-top: 10px;
-  .lyc-header{
+
+  .lyc-header {
     background: white;
-    
-    padding:10px;
+
+    padding: 10px;
     box-sizing: border-box;
-    .lyc-tool{
-      height: 30px; 
+
+    .lyc-tool {
+      height: 30px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      .tools{
+
+      .tools {
         display: flex;
         align-items: center;
-        .tools-upload-btn{
+
+        .tools-upload-btn {
           position: relative;
         }
-        .tools-upload-input{
+
+        .tools-upload-input {
           position: absolute;
-          top:0;
+          top: 0;
           left: 0;
           opacity: 0;
         }
       }
-      .ant-btn-text{
+
+      .ant-btn-text {
         text-decoration: underline;
         color: blue;
-      }   
+      }
     }
-    .lyc-audio{
+
+    .lyc-audio {
       height: 120px;
       position: relative;
-      .lyc-progress{
+
+      .lyc-progress {
         width: 100%;
         position: absolute;
         bottom: 0px;
-        .lyc-p-w{
+
+        .lyc-p-w {
           width: 100%;
           height: 2px;
           background: #eee;
-          .lyc-p-inner{
+
+          .lyc-p-inner {
             width: 0;
             height: inherit;
             background: blue;
+
             &.active {
-              animation-play-state: running!important;
+              animation-play-state: running !important;
             }
+
             &.paused {
-              animation-play-state: paused!important;
+              animation-play-state: paused !important;
             }
           }
-          
+
         }
       }
-      .lyc-au-name{
+
+      .lyc-au-name {
         text-align: center;
       }
-      .lyc-wave{
+
+      .lyc-wave {
         height: 90px;
       }
-      .ant-spin{
+
+      .ant-spin {
         position: absolute;
         top: 50%;
         left: 50%;
       }
     }
   }
-  .lyc-auth{
-    .lyc-a-item{
-      padding:10px;
+
+  .lyc-auth {
+    .lyc-a-item {
+      padding: 10px;
       display: flex;
       align-items: center;
       background: white;
-      span{
+
+      span {
         display: inline-block;
         width: 70px;
       }
-      .ant-input{
+
+      .ant-input {
         width: 200px;
       }
     }
   }
-  .lyc-content{
+
+  .lyc-content {
     background: white;
-    margin-top:10px;
+    margin-top: 10px;
     box-sizing: border-box;
     height: calc(100vh - 200px);
     overflow-y: scroll;
-    .lyc-item{
-      padding:10px;
+
+    .lyc-item {
+      padding: 10px;
       display: flex;
       align-items: center;
       height: 60px;
       overflow: hidden;
       border-bottom: 1px solid #eee;
-      &.active{
+
+      &.active {
         background-color: plum;
       }
-      .rows{
+
+      .rows {
         width: 40px;
         text-align: center;
         background-color: cornflowerblue;
         cursor: pointer;
       }
-      .time{
+
+      .time {
         width: 140px;
         flex-shrink: 0;
         margin-left: 40px;
-        
-        
-        .editCont{
-          span{
+
+
+        .editCont {
+          span {
             user-select: none;
+            -webkit-user-select: none;
           }
-          .ant-input{
+
+          .ant-input {
             width: 120px;
           }
-          
+
         }
-        
+
       }
-      .cont{
+
+      .cont {
         width: 100%;
-        .editCont2{
-          span{
+
+        .editCont2 {
+          span {
             user-select: none;
+            -webkit-user-select: none;
           }
-          .ant-input{
+
+          .ant-input {
             width: 100%;
           }
         }
       }
-      .operation{
+
+      .operation {
         width: 120px;
         text-align: center;
-        
-        .ant-btn-text{
+
+        .ant-btn-text {
           color: blue;
         }
       }
     }
   }
+
   // .footer{
   //   margin-top: 10px;
   //   height: 50px;
@@ -156,7 +189,7 @@
   //   background-color: white;
   //   text-align: center;
   // }
-  .side{
+  .side {
     width: 40px;
     height: 40px;
     text-align: center;
@@ -164,19 +197,21 @@
     bottom: 50px;
     left: 50%;
     transform: translateX(620px);
-    img{
+
+    img {
       width: 100%;
       height: 100%;
     }
   }
 }
 
-.lycModal{
-  .lyc-m-w{
+.lycModal {
+  .lyc-m-w {
     margin-top: 10px;
-    .lycModalText{
+
+    .lycModalText {
       height: 300px;
     }
   }
-  
+
 }
