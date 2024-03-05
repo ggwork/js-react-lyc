@@ -291,6 +291,11 @@ class Lyc extends React.Component {
     } else {
       subSeconds = String(subSeconds)
     }
+    if(mill < 10){
+      mill = '0'+ String(mill)
+    }else {
+      mill = String(mill)
+    }
     return min + ':' + subSeconds + '.' + mill
   }
 
